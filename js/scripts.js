@@ -8,10 +8,10 @@ function Pizza(base, topping, price) {
 }
 function Size(size) {
   var sizes = [
-    {sizeName: "personal", basePrice: 6},
-    {sizeName: "medium", basePrice: 10},
-    {sizeName: "large", basePrice: 12},
-    {sizeName: "xlarge", basePrice: 16},
+    {sizeName: "personal", basePrice: 4},
+    {sizeName: "medium", basePrice: 9},
+    {sizeName: "large", basePrice: 11},
+    {sizeName: "xlarge", basePrice: 14},
   ]
   function findSize(sz) {
     for (s=0; s < sizes.length; s++) {
@@ -119,6 +119,7 @@ $("document").ready(function() {
     thisPizza.pizzaToppings=newToppings;
     thisPizza.pizzaPriceCalc();
     var finalCost = thisPizza.pizzaPrice;
+    $("#total").show();
     $("#totalCost").text(finalCost);
   });
 });
