@@ -31,3 +31,7 @@ Sample Output: thisPizza.pizzaBase[1] = {"marinara", 2}
 - Take the price of each base and add it to the pizza's total price.
 Sample Input: {"deep dish", 2} , {"marinara", 2}
 Sample Output: thisPizza.pizzaPrice = 4
+
+- Compare user input from a radio button for crust size with an array of crust size objects, and put the crust size into the pizza object.
+Sample Input: User clicks on option for "Large"
+Sample Output: thisPizza.pizzaBases[0] = {sizeName: "large", basePrice: 16}

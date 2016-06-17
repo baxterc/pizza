@@ -10,12 +10,42 @@
   </head>
   <body>
     <h1>Welcome to Chuck's Pizza!</h1>
-    <p>Crust</p>
-    <input type="text" id="base1" value=""></input>
+    <div class="size">
+      <h3>Sizes</h3>
+      <form>
+        <label>
+          <p>Personal<input type="radio" name="size" value="personal" checked></p>
+          <p>Medium<input type="radio" name="size" value="medium"></p>
+          <p>Large<input type="radio" name="size" value="large"></p>
+          <p>Extra Large<input type="radio" name="size" value="xlarge"></p>
+        </label>
+      </form>
+    </div>
+    <div class="crust">
+      <h3>Crust Styles</h3>
+      <form>
+        <label>
+          <p>Original<input type="radio" name="size" value="original" checked></p>
+          <p>Thin Crust<input type="radio" name="size" value="thincrust"></p>
+          <p>Deep Dish<input type="radio" name="size" value="deepdish"></p>
+        </label>
+      </form>
+    </div>
+    <div class="crust">
+      <h3>Sauces</h3>
+      <form>
+        <label>
+          <p>Tomato Marinara<input type="radio" name="sauce" value="tomato" checked></p>
+          <p>Pesto<input type="radio" name="sauce" value="pesto"></p>
+          <p>Parmesan & Garlic Alfredo<input type="radio" name="sauce" value="alfredo"></p>
+          <p>Garlic & Oil<input type="radio" name="sauce" value="garlic"></p>
+        </label>
+      </form>
+    </div>
+
     <p>Toppings</p>
-    <input type="text" id="topping1" value=""></input>
-    <input type="text" id="topping2" value=""></input>
-    <input type="text" id="topping3" value=""></input>
+      <input type="checkbox" name="mozzarella" value="mozzarella" checked> Whole Milk Mozzarella<br>
+      <input type="checkbox" name="provolone" value="provolone"> Provolone<br>
 
     <button type="button" name="button" id="pizzaOven">Bake It!</button>
 
