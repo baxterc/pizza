@@ -5,3 +5,7 @@ Sample Output: {pizzaSize: "medium", pizzaTopping: "extra cheese"}
 - Allow the user to select a single topping via a prototype.
 Sample Input: "olives"
 Sample Output: {pizzaSize: "medium", pizzaTopping: "olives"}
+
+- Allow the user to add multiple toppings via a prototype.
+Sample Input: "sausage", "peppers", "onions"
+Sample Output: {pizzaSize: "medium", pizzaTopping: "sausage", "peppers", "onions"}
