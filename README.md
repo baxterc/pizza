@@ -11,8 +11,11 @@ Sample Input: "sausage", "peppers", "onions"
 Sample Output: thisPizza = {pizzaSize: "medium", pizzaTopping: ["sausage", "peppers", "onions"]}
 
 - Construct a topping object rather than just a string to allow price to be associated with the topping chosen by the user.
-Sample Input: "sausage"
+Sample Input: "sausage", 1
 Sample Output: thisPizza = {pizzaSize: "medium", pizzaTopping: Array[1]}
   thisPizza.pizzaTopping[0] = Topping {toppingName: "sausage", toppingPrice: 1}
 
--
+- Create an input for crust size that will then construct a crust size object and add it to the pizza object via a prototype.
+Sample Input: "large", 5
+Sample Output: thisPizza = {pizzaSize: Array[1], pizzaTopping: Array[1]}
+  thisPizza.pizzaSize[0] = Size {crustSize: "large",sizePrice = 5}
