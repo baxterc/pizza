@@ -6,18 +6,12 @@ function Pizza(base, topping, price) {
   this.pizzaToppings = [];
   this.pizzaPrice = 0;
 }
-
-function Base(type, price) {
-  this.baseType = type;
-  this.basePrice = price;
-}
-
 function Size(size) {
   var sizes = [
-    {sizeName: "personal", basePrice: 8},
-    {sizeName: "medium", basePrice: 12},
-    {sizeName: "large", basePrice: 16},
-    {sizeName: "xlarge", basePrice: 20},
+    {sizeName: "personal", basePrice: 6},
+    {sizeName: "medium", basePrice: 10},
+    {sizeName: "large", basePrice: 12},
+    {sizeName: "xlarge", basePrice: 16},
   ]
   function findSize(sz) {
     for (s=0; s < sizes.length; s++) {
@@ -30,7 +24,6 @@ function Size(size) {
   this.sizeName = foundSize.sizeName;
   this.basePrice = foundSize.basePrice;
 }
-
 function Crust(crust) {
   var crusts = [
     {crustName: "original", basePrice: 1},
@@ -48,7 +41,6 @@ function Crust(crust) {
   this.crustName = foundCrust.crustName;
   this.basePrice = foundCrust.basePrice;
 }
-
 function Sauce(sauce) {
   var sauces = [
     {sauceName: "tomato", basePrice: 0},
@@ -67,12 +59,10 @@ function Sauce(sauce) {
   this.sauceName = foundSauce.sauceName;
   this.basePrice = foundSauce.basePrice;
 }
-
 function Topping(topping, price) {
   this.toppingName = topping;
   this.toppingPrice = price;
 }
-
 Pizza.prototype.baseAdd = function(base) {
   this.pizzaBases.push(base);
 };
@@ -101,7 +91,6 @@ Pizza.prototype.pizzaPriceCalc = function() {
   var totalPrice = this.pizzaPrice;
   var baseArr = this.pizzaBases;
   var topArr = this.pizzaToppings;
-
   baseArr.forEach(function(base) {
     var bPrice = base.basePrice;
     totalPrice += bPrice;
@@ -113,32 +102,23 @@ Pizza.prototype.pizzaPriceCalc = function() {
   this.pizzaPrice = totalPrice;
 };
 
-
 //UI Logic
 $("document").ready(function() {
   $("button#pizzaOven").click(function() {
-
     var thisPizza = new Pizza;
     var newSize = $('input:radio[name="size"]:checked').val();
     var newCrust = $('input:radio[name="crust"]:checked').val();
     var newSauce = $('input:radio[name="sauce"]:checked').val();
     var newToppings = toppingAssemble();
-    debugger;
-
     var thisSize = new Size(newSize);
     var thisCrust = new Crust(newCrust);
     var thisSauce = new Sauce(newSauce);
-
     thisPizza.baseAdd(thisSize);
     thisPizza.baseAdd(thisCrust);
     thisPizza.baseAdd(thisSauce);
     thisPizza.pizzaToppings=newToppings;
-
-
     thisPizza.pizzaPriceCalc();
-
-    debugger;
-    // console.log(thisPizza);
-    // console.log(thisPizza.pizzaTopping[0]);
+    var finalCost = thisPizza.pizzaPrice;
+    $("#totalCost").text(finalCost);
   });
 });

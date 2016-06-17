@@ -9,73 +9,76 @@
     <script src="js/scripts.js"></script>
   </head>
   <body>
-    <h1>Welcome to Chuck's Pizza!</h1>
-    <div class="size">
-      <h3>Sizes</h3>
-      <form>
-        <label>
-          <p>Personal<input type="radio" name="size" value="personal" checked></p>
-          <p>Medium<input type="radio" name="size" value="medium"></p>
-          <p>Large<input type="radio" name="size" value="large"></p>
-          <p>Extra Large<input type="radio" name="size" value="xlarge"></p>
-        </label>
-      </form>
+    <div class="container">
+      <h1>Welcome to Chuck's Pizza!</h1>
+      <div class="row">
+        <div class="col-xs-4">
+        <h3>Sizes</h3>
+        <form>
+            <p><input type="radio" name="size" value="personal" checked> Personal</p>
+            <p><input type="radio" name="size" value="medium"> Medium</p>
+            <p><input type="radio" name="size" value="large"> Large</p>
+            <p><input type="radio" name="size" value="xlarge"> Extra Large</p>
+        </form>
+      </div>
+      <div class="col-xs-4">
+        <h3>Crust Styles</h3>
+        <form>
+            <p><input type="radio" name="crust" value="original" checked> Original</p>
+            <p><input type="radio" name="crust" value="thincrust"> Thin Crust</p>
+            <p><input type="radio" name="crust" value="deepdish"> Deep Dish</p>
+        </form>
+      </div>
+      <div class="col-xs-4">
+        <h3>Sauces</h3>
+        <form>
+            <p><input type="radio" name="sauce" value="tomato" checked> Tomato Marinara</p>
+            <p><input type="radio" name="sauce" value="pesto"> Pesto</p>
+            <p><input type="radio" name="sauce" value="alfredo"> Parmesan & Garlic Alfredo</p>
+            <p><input type="radio" name="sauce" value="garlic"> Garlic & Oil</p>
+        </form>
+      </div>
+
+      <h2>Toppings</h2>
+      <div class="col-xs-4">
+      <h3>Cheeses</h3>
+        <fieldset id="cheese">
+          <input type="checkbox" name="cheese" value="mozzarella" checked> Whole Milk Mozzarella<br>
+          <input type="checkbox" name="cheese" value="provolone"> Provolone<br>
+          <input type="checkbox" name="cheese" value="cheddar"> White Cheddar<br>
+          <input type="checkbox" name="cheese" value="feta"> Crumbled Feta<br>
+          <input type="checkbox" name="cheese" value="ricotta"> Ricotta<br>
+        </fieldset>
+      </div>
+      <div class="col-xs-4">
+      <h3>Veggies</h3>
+        <input type="checkbox" class="veggie" name="veggie" value="peppers"> Peppers<br>
+        <input type="checkbox" class="veggie" name="veggie" value="onions"> Onions<br>
+        <input type="checkbox" class="veggie" name="veggie" value="olives"> Black Olives<br>
+        <input type="checkbox" class="veggie" name="veggie" value="mushrooms"> Mushrooms<br>
+        <input type="checkbox" class="veggie" name="veggie" value="pineapple"> Pineapple<br>
+        <input type="checkbox" class="veggie" name="veggie" value="kalamatas"> Kalamata Olives<br>
+        <input type="checkbox" class="veggie" name="veggie" value="jalapenos"> Jalapeno Peppers<br>
+        <input type="checkbox" class="veggie" name="veggie" value="spinach"> Spinach<br>
+        <input type="checkbox" class="veggie" name="veggie" value="broccoli"> Broccoli<br>
+      </div>
+      <div class="col-xs-4">
+      <h3>Meats</h3>
+        <input type="checkbox" class="meat" name="meat" value="pepperoni"> Pepperoni<br>
+        <input type="checkbox" class="meat" name="meat" value="sausage"> Sausage<br>
+        <input type="checkbox" class="meat" name="meat" value="canadian"> Canadian Bacon<br>
+        <input type="checkbox" class="meat" name="meat" value="meatballs"> House-Made Meatballs<br>
+        <input type="checkbox" class="meat" name="meat" value="chicken"> Chicken<br>
+      </div>
+
+      <div class="container">
+
+      </div>
+
+      <div class="jumbotron pizzaDisplay">
+        <button type="button" name="button" id="pizzaOven">Bake It!</button>
+        <p>Your total will be: $<span id="totalCost"></span>.00</p>
+      </div>
     </div>
-    <div class="crust">
-      <h3>Crust Styles</h3>
-      <form>
-        <label>
-          <p>Original<input type="radio" name="crust" value="original" checked></p>
-          <p>Thin Crust<input type="radio" name="crust" value="thincrust"></p>
-          <p>Deep Dish<input type="radio" name="crust" value="deepdish"></p>
-        </label>
-      </form>
-    </div>
-    <div class="crust">
-      <h3>Sauces</h3>
-      <form>
-        <label>
-          <p>Tomato Marinara<input type="radio" name="sauce" value="tomato" checked></p>
-          <p>Pesto<input type="radio" name="sauce" value="pesto"></p>
-          <p>Parmesan & Garlic Alfredo<input type="radio" name="sauce" value="alfredo"></p>
-          <p>Garlic & Oil<input type="radio" name="sauce" value="garlic"></p>
-        </label>
-      </form>
-    </div>
-
-    <h2>Toppings</h2>
-    <h3>Cheeses</h3>
-      <fieldset id="cheese">
-        <input type="checkbox" name="cheese" value="mozzarella" checked> Whole Milk Mozzarella<br>
-        <input type="checkbox" name="cheese" value="provolone"> Provolone<br>
-        <input type="checkbox" name="cheese" value="cheddar"> White Cheddar<br>
-        <input type="checkbox" name="cheese" value="feta"> Crumbled Feta<br>
-        <input type="checkbox" name="cheese" value="ricotta"> Ricotta<br>
-      </fieldset>
-
-    <h3>Veggies></h3>
-      <input type="checkbox" class="veggie" name="veggie" value="peppers"> Peppers<br>
-      <input type="checkbox" class="veggie" name="veggie" value="onions"> Onions<br>
-      <input type="checkbox" class="veggie" name="veggie" value="olives"> Black Olives<br>
-      <input type="checkbox" class="veggie" name="veggie" value="mushrooms"> Mushrooms<br>
-      <input type="checkbox" class="veggie" name="veggie" value="pineapple"> Pineapple<br>
-      <input type="checkbox" class="veggie" name="veggie" value="kalamatas"> Kalamata Olives<br>
-      <input type="checkbox" class="veggie" name="veggie" value="jalapenos"> Jalapeno Peppers<br>
-      <input type="checkbox" class="veggie" name="veggie" value="spinach"> Spinach<br>
-      <input type="checkbox" class="veggie" name="veggie" value="broccoli"> Broccoli<br>
-
-    <h3>Meats</h3>
-      <input type="checkbox" class="meat" name="meat" value="pepperoni"> Pepperoni<br>
-      <input type="checkbox" class="meat" name="meat" value="sausage"> Sausage<br>
-      <input type="checkbox" class="meat" name="meat" value="canadian"> Canadian Bacon<br>
-      <input type="checkbox" class="meat" name="meat" value="meatballs"> House-Made Meatballs<br>
-      <input type="checkbox" class="meat" name="meat" value="chicken"> Chicken<br>
-
-    <button type="button" name="button" id="pizzaOven">Bake It!</button>
-
-    <div class="pizzaDisplay">
-
-    </div>
-
   </body>
 </html>
