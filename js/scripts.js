@@ -6,9 +6,9 @@ function Pizza(base, topping, price) {
   this.pizzaPrice = 0;
 }
 
-function Size(size, price) {
-  this.sizeName = size;
-  this.sizePrice = price;
+function Base(type, price) {
+  this.baseType = type;
+  this.basePrice = price;
 }
 
 function Topping(topping, price) {
@@ -16,8 +16,8 @@ function Topping(topping, price) {
   this.toppingPrice = price;
 }
 
-Pizza.prototype.sizeAdd = function (size) {
-  this.pizzaBases.push(size);
+Pizza.prototype.baseAdd = function (base) {
+  this.pizzaBases.push(base);
 };
 
 Pizza.prototype.toppingAdd = function (topping) {
@@ -35,6 +35,12 @@ Pizza.prototype.toppingAdd = function (topping) {
 // };
 
 function pizzaPriceCalc(pizza) {
+  pizza.pizzaBases.forEach(function(base) {
+    var bPrice = base.basePrice;
+    pizza.pizzaPrice += bPrice;
+    console.log(bPrice);
+    console.log(pizza.pizzaPrice);
+  });
   pizza.pizzaToppings.forEach(function(top) {
     var tPrice = top.toppingPrice;
     pizza.pizzaPrice += tPrice;
@@ -47,15 +53,15 @@ function pizzaPriceCalc(pizza) {
 $("document").ready(function() {
   $("button#pizzaOven").click(function() {
     var thisPizza = new Pizza;
-    var s1 = $("#base1").val();
-    var thisSize = new Size(s1, 5);
+    var b1 = $("#base1").val();
+    var thisBase = new Base(b1, 5);
     var t1 = $("#topping1").val();
     var topping1 = new Topping(t1, 1)
     var t2 = $("#topping2").val();
     var topping2 = new Topping(t2, 3)
     var t3 = $("#topping3").val();
     var topping3 = new Topping(t3, 2)
-    thisPizza.sizeAdd(thisSize);
+    thisPizza.baseAdd(thisBase);
     thisPizza.toppingAdd(topping1);
     thisPizza.toppingAdd(topping2);
     thisPizza.toppingAdd(topping3);

@@ -23,3 +23,11 @@ Sample Output: thisPizza = {pizzaSize: Array[1], pizzaTopping: Array[1]}
 - Take the price of each topping on the pizza and add it to the pizza's total price.
 Sample Input: {"olives", 1} , {"sausage", 3} , {"onions", 1}
 Sample Output: thisPizza.pizzaPrice = 5
+
+- Include a "base" array for each pizza to include size, crust style, and sauce objects with prices related to each.
+Sample Input: {"deep dish", 2} , {"marinara", 2}
+Sample Output: thisPizza.pizzaBase[1] = {"marinara", 2}
+
+- Take the price of each base and add it to the pizza's total price.
+Sample Input: {"deep dish", 2} , {"marinara", 2}
+Sample Output: thisPizza.pizzaPrice = 4
