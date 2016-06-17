@@ -1,8 +1,9 @@
 //Business Logic
 
-function Pizza(base, topping) {
-  this.pizzaBase = [];
-  this.pizzaTopping = [];
+function Pizza(base, topping, price) {
+  this.pizzaBases = [];
+  this.pizzaToppings = [];
+  this.pizzaPrice = 0;
 }
 
 function Size(size, price) {
@@ -16,19 +17,36 @@ function Topping(topping, price) {
 }
 
 Pizza.prototype.sizeAdd = function (size) {
-  this.pizzaBase.push(size);
+  this.pizzaBases.push(size);
 };
 
 Pizza.prototype.toppingAdd = function (topping) {
-  this.pizzaTopping.push(topping);
+  this.pizzaToppings.push(topping);
 };
 
+// Pizza.prototype.pizzaPriceCalc = function() {
+//   var pizzaArr = this.PizzaToppings;
+//   pizzaArr.forEach(function(top) {
+//     var tPrice = top.toppingPrice;
+//     this.pizzaPrice += tPrice;
+//     console.log(tPrice);
+//     console.log(this.pizzaPrice);
+//   });
+// };
+
+function pizzaPriceCalc(pizza) {
+  pizza.pizzaToppings.forEach(function(top) {
+    var tPrice = top.toppingPrice;
+    pizza.pizzaPrice += tPrice;
+    console.log(tPrice);
+    console.log(pizza.pizzaPrice);
+  });
+};
 
 //UI Logic
 $("document").ready(function() {
   $("button#pizzaOven").click(function() {
-    var thisPizza = new Pizza("medium", "extra cheese");
-
+    var thisPizza = new Pizza;
     var s1 = $("#base1").val();
     var thisSize = new Size(s1, 5);
     var t1 = $("#topping1").val();
@@ -41,8 +59,11 @@ $("document").ready(function() {
     thisPizza.toppingAdd(topping1);
     thisPizza.toppingAdd(topping2);
     thisPizza.toppingAdd(topping3);
+    debugger;
+    pizzaPriceCalc(thisPizza);
+    // thisPizza.pizzaPriceCalc();
     // console.log(thisPizza);
     // console.log(thisPizza.pizzaTopping[0]);
-    debugger;
+
   });
 });

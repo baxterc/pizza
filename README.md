@@ -19,3 +19,7 @@ Sample Output: thisPizza = {pizzaSize: "medium", pizzaTopping: Array[1]}
 Sample Input: "large", 5
 Sample Output: thisPizza = {pizzaSize: Array[1], pizzaTopping: Array[1]}
   thisPizza.pizzaSize[0] = Size {crustSize: "large",sizePrice = 5}
+
+- Take the price of each topping on the pizza and add it to the pizza's total price.
+Sample Input: {"olives", 1} , {"sausage", 3} , {"onions", 1}
+Sample Output: thisPizza.pizzaPrice = 5
