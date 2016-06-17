@@ -1,3 +1,32 @@
 #total {
   display: none;
+
+}
+
+#total p {
+  margin-top: 24px;
+}
+
+#heading {
+  padding: 30px;
+  background-color: #66BA56;
+  color: white;
+  border-radius: 6px;
+}
+
+p {
+  font-size: 20px;
+}
+
+#cheeses, #veggies, #meats {
+  font-size: 20px;
+}
+
+.pizzaDisplay {
+  text-align: center;
+  background-color: #FF3636;
+}
+
+.pizzaDisplay button {
+  padding: 10px;
 }
