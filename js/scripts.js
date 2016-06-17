@@ -5,6 +5,11 @@ function Pizza(size, topping) {
   this.pizzaTopping = [];
 }
 
+function Topping(topping, price) {
+  this.toppingName = topping;
+  this.toppingPrice = price;
+}
+
 Pizza.prototype.toppingAdd = function (topping) {
   this.pizzaTopping.push(topping);
 };
@@ -13,13 +18,11 @@ Pizza.prototype.toppingAdd = function (topping) {
 $("document").ready(function() {
   $("button#pizzaOven").click(function() {
     var thisPizza = new Pizza("medium", "extra cheese");
-    var topping1 = $("#topping1").val();
-    var topping2 = $("#topping2").val();
-    var topping3 = $("#topping3").val();
-    thisPizza.toppingAdd(topping1);
-    thisPizza.toppingAdd(topping2);
-    thisPizza.toppingAdd(topping3);
+    var t1 = $("#topping1").val();
+    var thisTopping = new Topping(t1, 1)
+    thisPizza.toppingAdd(thisTopping);
     console.log(thisPizza);
+    console.log(thisPizza.pizzaTopping[0]);
     $(".pizzaDisplay").text(thisPizza);
   });
 });
