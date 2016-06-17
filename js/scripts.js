@@ -1,4 +1,5 @@
 //Business Logic
+var toppings = [];
 
 function Pizza(base, topping, price) {
   this.pizzaBases = [];
@@ -67,22 +68,36 @@ function Sauce(sauce) {
   this.basePrice = foundSauce.basePrice;
 }
 
-
 function Topping(topping, price) {
   this.toppingName = topping;
   this.toppingPrice = price;
 }
 
-Pizza.prototype.baseAdd = function (base) {
+Pizza.prototype.baseAdd = function(base) {
   this.pizzaBases.push(base);
 };
 
-Pizza.prototype.toppingAdd = function (topping) {
-  this.pizzaToppings.push(topping);
-};
+function toppingAssemble() {
+  var topArr = [];
+  ($('input[name=cheese]:checked')).each(function() {
+    var top = ($(this).val());
+    var thisTopping = new Topping(top, 2);
+    topArr.push(thisTopping);
+  });
+  ($('input[name=veggie]:checked')).each(function() {
+    var top = ($(this).val());
+    var thisTopping = new Topping(top, 1);
+    topArr.push(thisTopping);
+  });
+  ($('input[name=meat]:checked')).each(function() {
+    var top = ($(this).val());
+    var thisTopping = new Topping(top, 3);
+    topArr.push(thisTopping);
+  });
+  return topArr;
+}
 
 Pizza.prototype.pizzaPriceCalc = function() {
-  debugger;
   var totalPrice = this.pizzaPrice;
   var baseArr = this.pizzaBases;
   var topArr = this.pizzaToppings;
@@ -95,25 +110,9 @@ Pizza.prototype.pizzaPriceCalc = function() {
     var tPrice = top.toppingPrice;
     totalPrice += tPrice;
   });
-  this.pizzPrice = totalPrice;
+  this.pizzaPrice = totalPrice;
 };
 
-
-
-function pizzaPriceCalc(pizza) {
-  pizza.pizzaBases.forEach(function(base) {
-    var bPrice = base.basePrice;
-    pizza.pizzaPrice += bPrice;
-    console.log(bPrice);
-    console.log(pizza.pizzaPrice);
-  });
-  pizza.pizzaToppings.forEach(function(top) {
-    var tPrice = top.toppingPrice;
-    pizza.pizzaPrice += tPrice;
-    console.log(tPrice);
-    console.log(pizza.pizzaPrice);
-  });
-};
 
 //UI Logic
 $("document").ready(function() {
@@ -123,6 +122,8 @@ $("document").ready(function() {
     var newSize = $('input:radio[name="size"]:checked').val();
     var newCrust = $('input:radio[name="crust"]:checked').val();
     var newSauce = $('input:radio[name="sauce"]:checked').val();
+    var newToppings = toppingAssemble();
+    debugger;
 
     var thisSize = new Size(newSize);
     var thisCrust = new Crust(newCrust);
@@ -131,10 +132,13 @@ $("document").ready(function() {
     thisPizza.baseAdd(thisSize);
     thisPizza.baseAdd(thisCrust);
     thisPizza.baseAdd(thisSauce);
+    thisPizza.pizzaToppings=newToppings;
+
 
     thisPizza.pizzaPriceCalc();
+
+    debugger;
     // console.log(thisPizza);
     // console.log(thisPizza.pizzaTopping[0]);
-    debugger;
   });
 });
