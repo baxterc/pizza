@@ -24,15 +24,22 @@ Pizza.prototype.toppingAdd = function (topping) {
   this.pizzaToppings.push(topping);
 };
 
-// Pizza.prototype.pizzaPriceCalc = function() {
-//   var pizzaArr = this.PizzaToppings;
-//   pizzaArr.forEach(function(top) {
-//     var tPrice = top.toppingPrice;
-//     this.pizzaPrice += tPrice;
-//     console.log(tPrice);
-//     console.log(this.pizzaPrice);
-//   });
-// };
+Pizza.prototype.pizzaPriceCalc = function() {
+  var totalPrice = this.pizzaPrice;
+  var baseArr = this.pizzaBases;
+  var topArr = this.pizzaToppings;
+  
+  baseArr.forEach(function(base) {
+    var bPrice = base.basePrice;
+    totalPrice += bPrice;
+  });
+  topArr.forEach(function(top) {
+    var tPrice = top.toppingPrice;
+    totalPrice += tPrice;
+  });
+};
+
+
 
 function pizzaPriceCalc(pizza) {
   pizza.pizzaBases.forEach(function(base) {
@@ -65,9 +72,8 @@ $("document").ready(function() {
     thisPizza.toppingAdd(topping1);
     thisPizza.toppingAdd(topping2);
     thisPizza.toppingAdd(topping3);
-    debugger;
-    pizzaPriceCalc(thisPizza);
-    // thisPizza.pizzaPriceCalc();
+    // pizzaPriceCalc(thisPizza);
+    thisPizza.pizzaPriceCalc();
     // console.log(thisPizza);
     // console.log(thisPizza.pizzaTopping[0]);
 
