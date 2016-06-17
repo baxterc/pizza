@@ -33,5 +33,11 @@ Sample Input: {"deep dish", 2} , {"marinara", 2}
 Sample Output: thisPizza.pizzaPrice = 4
 
 - Compare user input from a radio button for crust size with an array of crust size objects, and put the crust size into the pizza object.
-Sample Input: User clicks on option for "Large"
+Sample Input: User clicks on button for "Large"
 Sample Output: thisPizza.pizzaBases[0] = {sizeName: "large", basePrice: 16}
+
+- As above, but including sauces and crust styles.
+Sample Input: User clicks on buttons for "Medium", "Deep Dish", "Tomato Marinara"
+Sample Output: thisPizza.pizzaBases[0] = {sizeName: "medium", basePrice: 12}
+thisPizza.pizzaBases[1] = {crustName: "deepdish", basePrice: 3}
+thisPizza.pizzaBases[2] = {sauceName: "tomato", basePrice: 0}
